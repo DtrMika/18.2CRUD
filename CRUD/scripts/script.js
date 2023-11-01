@@ -89,4 +89,6 @@ btnGuardar.addEventListener("click", () => {
 });
 
 //Funcion Eliminar
-btnEliminar.addEventListener("click", () => {});
+btnEliminar.addEventListener("click", () => {
+  let inputDel = document.getElementById("inputDelete").value;
+});
