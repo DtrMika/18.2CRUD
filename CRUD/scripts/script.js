@@ -25,6 +25,7 @@ fetch(URL)
 // Boton buscar id
 btnBuscarID.addEventListener("click", () => {
   let inputBuscarID = document.getElementById("inputGet1Id").value;
+  divResultados.innerHTML = "";
   if (inputBuscarID != "" && inputBuscarID > 0) {
     const user = fetchedData.find((element) => element.id === inputBuscarID);
 
@@ -81,7 +82,7 @@ btnGuardar.addEventListener("click", () => {
       fetchedData[idMod].lastname = newApellido;
       console.log("Usuario modficado con exit", fetchedData[idMod]);
     } else {
-      console.log("por favor, ingrese nombre y apelido");
+      console.log("por favor, ingrese nombre y apellido");
     }
   } else {
     console.log("El ID ingresado no es valido");
@@ -91,4 +92,12 @@ btnGuardar.addEventListener("click", () => {
 //Funcion Eliminar
 btnEliminar.addEventListener("click", () => {
   let inputDel = document.getElementById("inputDelete").value;
+  let idDel = inputDel - 1;
+
+  if (inputDel != "" && inputDel <= fetchedData.length) {
+    fetchedData.splice(idDel, 1);
+    console.log("Se ha eliminado el registro con indice: " + idDel);
+  } else {
+    console.log("El ID no es valido");
+  }
 });
