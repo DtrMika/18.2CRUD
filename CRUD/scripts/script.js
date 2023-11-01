@@ -3,6 +3,7 @@ const btnBuscarID = document.getElementById("btnGet1");
 const divResultados = document.getElementById("results");
 const btnAgregar = document.getElementById("btnPost");
 const btnModificar = document.getElementById("btnPut");
+const btnGuardar = document.getElementById("btnSendChanges");
 const btnEliminar = document.getElementById("btnDelete");
 let fetchedData = [];
 
@@ -64,10 +65,27 @@ btnAgregar.addEventListener("click", () => {
 });
 
 //Funcion Modificar
-btnModificar.addEventListener("click", () => {
+btnGuardar.addEventListener("click", () => {
   let inputModificar = document.getElementById("inputPutId").value;
   let newNombre = document.getElementById("inputPutNombre").value;
-  let newAppellido = docuemnt.getElementById("inputPutApellido").value;
+  let newApellido = docuemnt.getElementById("inputPutApellido").value;
+  let idMod = inputModificar - 1;
+
+  if (
+    inputModificar <= fetchedData.length &&
+    inputModificar >= fetchedData.length &&
+    inputModificar != ""
+  ) {
+    if (newNombre != "" && newApellido != "") {
+      fetchedData[idMod].name = newNombre;
+      fetchedData[idMod].lastname = newApellido;
+      console.log("Usuario modficado con exit", fetchedData[idMod]);
+    } else {
+      console.log("por favor, ingrese nombre y apelido");
+    }
+  } else {
+    console.log("El ID ingresado no es valido");
+  }
 });
 
 //Funcion Eliminar
