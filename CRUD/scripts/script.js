@@ -68,12 +68,12 @@ btnAgregar.addEventListener("click", () => {
 btnGuardar.addEventListener("click", () => {
   let inputModificar = document.getElementById("inputPutId").value;
   let newNombre = document.getElementById("inputPutNombre").value;
-  let newApellido = docuemnt.getElementById("inputPutApellido").value;
+  let newApellido = document.getElementById("inputPutApellido").value;
   let idMod = inputModificar - 1;
 
   if (
     inputModificar <= fetchedData.length &&
-    inputModificar >= fetchedData.length &&
+    inputModificar > 0 &&
     inputModificar != ""
   ) {
     if (newNombre != "" && newApellido != "") {
